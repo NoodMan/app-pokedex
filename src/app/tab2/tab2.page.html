@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <ion-img style="width: 120px; height: 80px;"
+        src="https://fontmeme.com/permalink/230118/c572c5a8318a7a7f6bc70809e4e39ab1.png"></ion-img>
+    </ion-title>
+
+    <ion-grid>
+      <ion-row>
+        <ion-img style="width: 120px; height: 80px;" src="assets/icon/buttons-removebg-preview-2.png"></ion-img>
+        <ion-img style="width: 70px; height: 80px;" src="./assets/icon/empty.png"></ion-img>
+      </ion-row>
+    </ion-grid>
+
+  </ion-toolbar>
+</ion-header>
+
+
+  <ion-content>
+    <ion-list>
+      <ion-item *ngFor="let pokemon of pokemons">
+        <ion-thumbnail slot="start">
+          <img [src]="pokemon.image">
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ pokemon.name }}</h2>
+          <p>Weight : {{ pokemon.weight }}</p>
+          <p>Height : {{ pokemon.height }}</p>
+          <p>Base experience : {{ pokemon.base_experience }}</p>
+          <p>HP : {{ pokemon.hp }}</p>
+          <p>Type : {{pokemon.types}}</p>
+          <p># {{ pokemon.order }}</p>
+        </ion-label>
+       
+      </ion-item>
+   
+
+  </ion-list>
+  </ion-content>
+  
+
+
+
+
