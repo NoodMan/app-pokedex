@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { InfiniteScrollCustomEvent } from '@ionic/angular';
 import { map } from 'rxjs';
 
 @Component({
@@ -11,6 +12,8 @@ import { map } from 'rxjs';
 
 export class Tab2Page {
   pokemons: any[] = [];
+  offset = 0;
+  numberPokemon = 5;
 
   constructor(private http: HttpClient) {
     this.getPokemons();
@@ -41,6 +44,12 @@ export class Tab2Page {
     );
   }
 
-  
+  public onIonInfinite(event: any) {
+    this.offset += this.numberPokemon;
+    this.getPokemons();
+    setTimeout(() => {
+      (event as InfiniteScrollCustomEvent).target.complete();
+    }, this.numberPokemon);
+  } 
 }
 

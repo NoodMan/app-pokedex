@@ -1,7 +1,7 @@
 ion-card-header.ios {
   display: contents;
   flex-flow: column-reverse;
-  
+
 }
 
 ion-title {
@@ -11,6 +11,7 @@ ion-title {
   width: 100%;
   height: 100%;
   text-align: center;
+  margin: 10px;
 }
 
 ion-toolbar {
@@ -21,4 +22,24 @@ ion-toolbar {
   display: contents;
 }
 
+ion-col {
+  border-radius: 9px;
+  margin: 10px;
+  height: 279px;
+  border: thick double #7f898e;
+}
 
+ion-card-title {
+  text-transform: uppercase;
+}
+
+
+/* iOS places the subtitle above the title */
+ion-card-header.ios {
+  display: flex;
+  flex-flow: column-reverse;
+}
+
+img{
+  height: 300%;
+}

@@ -15,30 +15,37 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let pokemon of pokemons">
+        <ion-card color="danger">
+        <ion-list>
+          <ion-thumbnail slot="start">
+            <img [src]="pokemon.image">
+          </ion-thumbnail>
+          <ion-label>
+            <ion-card-header>
+              <ion-card-title> {{ pokemon.name }} </ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p># {{ pokemon.order }}</p>
+              <p>Type : {{pokemon.types}}</p>
+              <p>HP : {{ pokemon.hp }}</p>
+              <p>Base experience : {{ pokemon.base_experience }}</p>
+              <p>Weight : {{ pokemon.weight }}</p>
+              <p>Height : {{ pokemon.height }}</p>
+            </ion-card-content>
+          </ion-label>
+        </ion-list>
+      </ion-card>
+      </ion-col>
+    </ion-row>
 
-  <ion-content>
-    <ion-list>
-      <ion-item *ngFor="let pokemon of pokemons">
-        <ion-thumbnail slot="start">
-          <img [src]="pokemon.image">
-        </ion-thumbnail>
-        <ion-label>
-          <h2>{{ pokemon.name }}</h2>
-          <p>Weight : {{ pokemon.weight }}</p>
-          <p>Height : {{ pokemon.height }}</p>
-          <p>Base experience : {{ pokemon.base_experience }}</p>
-          <p>HP : {{ pokemon.hp }}</p>
-          <p>Type : {{pokemon.types}}</p>
-          <p># {{ pokemon.order }}</p>
-        </ion-label>
-       
-      </ion-item>
-   
 
-  </ion-list>
-  </ion-content>
-  
-
-
-
-
+    //pour faire fonctionner le scroll infini
+    <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+      <ion-infinite-scroll-content loadingText="Please wait..." loadingSpinner="bubbles"></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-grid>
+</ion-content>
