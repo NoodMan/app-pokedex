@@ -11,24 +11,23 @@ import { map } from 'rxjs';
 })
 
 export class Tab2Page {
-  pokemons: any[] = [];
-  offset = 0;
-  numberPokemon = 5;
+  public pokemons: any[] = [];
+  public offset = 0;
+  public limit = 20;
 
-  constructor(private http: HttpClient) {
-    this.getPokemons();
+  constructor(private router: Router,private http: HttpClient) {
+    this.getPokemons(this.offset);
   }
 
-  getPokemons() {
-    // Récupération de la liste de pokemons
-    this.http.get('https://pokeapi.co/api/v2/pokemon?limit=151').subscribe(
+  getPokemons(_offset: number) {
+    this.http.get('https://pokeapi.co/api/v2/pokemon?limit='+this.limit+'&offset='+_offset).subscribe(
       (data: any) => {
         data.results.forEach((pokemon: { url: string; }) => {
           // Récupération des détails de chaque pokemon
           this.http.get(pokemon.url).subscribe(
             (pokemonData: any) => {
               this.pokemons.push({
-                name: pokemonData.name,
+                name: pokemonData.name, 
                 weight: pokemonData.weight,
                 height: pokemonData.height,
                 base_experience: pokemonData.base_experience,
@@ -44,12 +43,12 @@ export class Tab2Page {
     );
   }
 
-  public onIonInfinite(event: any) {
-    this.offset += this.numberPokemon;
-    this.getPokemons();
+  onIonInfinite(event: any) {
+    this.offset = this.offset+20;
+    this.getPokemons(this.offset);
     setTimeout(() => {
       (event as InfiniteScrollCustomEvent).target.complete();
-    }, this.numberPokemon);
+    }, 500);
   } 
 }
 

@@ -25,9 +25,14 @@ ion-toolbar {
 ion-col {
   border-radius: 9px;
   margin: 10px;
-  height: 279px;
+  height: 328px;
   border: thick double #7f898e;
 }
+
+ion-card .list-md{
+  background-color:red;
+}
+
 
 ion-card-title {
   text-transform: uppercase;
@@ -38,9 +43,19 @@ ion-card-title {
 ion-card-header.ios {
   display: flex;
   flex-flow: column-reverse;
-}
+  
 
+}
+ion-card-header{
+  text-align: center;
+  margin-top: -13px;
+
+}
 img{
-  height: 300%;
-  display: grid;
+
+margin-left: 30px;
+}
+  
+thumbnail__size {
+size: 30px;
 }

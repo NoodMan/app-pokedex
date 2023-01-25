@@ -19,9 +19,9 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let pokemon of pokemons">
-        <ion-card color="danger">
+        <ion-card>
         <ion-list>
-          <ion-thumbnail slot="start">
+          <ion-thumbnail style="width: 170px; height: 80px;" slot="start">
             <img [src]="pokemon.image">
           </ion-thumbnail>
           <ion-label>
@@ -42,8 +42,6 @@
       </ion-col>
     </ion-row>
 
-
-    //pour faire fonctionner le scroll infini
     <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
       <ion-infinite-scroll-content loadingText="Please wait..." loadingSpinner="bubbles"></ion-infinite-scroll-content>
     </ion-infinite-scroll>
