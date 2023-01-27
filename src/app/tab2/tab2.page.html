@@ -14,6 +14,19 @@
 
   </ion-toolbar>
 </ion-header>
+<!-- barre de recherche ne fonctionne pas!!
+<ion-header>
+  <ion-toolbar>
+    <ion-searchbar [(ngModel)]="searchTerm"></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="filterPokemon()">
+        <ion-icon name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+ -->
+
 
 <ion-content>
   <ion-grid>
@@ -30,11 +43,11 @@
             </ion-card-header>
             <ion-card-content>
               <p># {{ pokemon.order }}</p>
-              <p>Type : {{pokemon.types}}</p>
-              <p>HP : {{ pokemon.hp }}</p>
-              <p>Base experience : {{ pokemon.base_experience }}</p>
-              <p>Weight : {{ pokemon.weight }}</p>
-              <p>Height : {{ pokemon.height }}</p>
+              <p><ion-icon name="keypad-outline"></ion-icon> Type : {{pokemon.types}}</p>
+              <p><ion-icon name="fitness-outline"></ion-icon> HP : {{ pokemon.hp }}</p>
+              <p><ion-icon name="speedometer-outline"></ion-icon> Base experience : {{ pokemon.base_experience }}</p>
+              <p> <ion-icon name="body-outline"></ion-icon> Weight : {{ pokemon.weight }} inch</p>
+              <p><ion-icon name="scale-outline"></ion-icon> Height : {{ pokemon.height }} lb </p>
             </ion-card-content>
           </ion-label>
         </ion-list>

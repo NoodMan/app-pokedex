@@ -14,6 +14,10 @@ export class Tab2Page {
   public pokemons: any[] = [];
   public offset = 0;
   public limit = 20;
+  public filteredPokemons: any[] = [];
+  public searchTerm!: string;
+
+  
 
   constructor(private router: Router,private http: HttpClient) {
     this.getPokemons(this.offset);
@@ -36,11 +40,18 @@ export class Tab2Page {
                 order: pokemonData.order,
                 image: pokemonData.sprites.front_default
               });
+              this.filteredPokemons = this.pokemons;
             }
           );
         });
       }
     );
+  }
+
+  filterPokemon(){
+    this.filteredPokemons = this.pokemons.filter(pokemon => {
+      return pokemon.name.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+    });
   }
 
   onIonInfinite(event: any) {
@@ -51,4 +62,6 @@ export class Tab2Page {
     }, 500);
   } 
 }
+
+
 

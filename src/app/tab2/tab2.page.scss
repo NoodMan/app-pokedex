@@ -30,7 +30,11 @@ ion-col {
 }
 
 ion-card .list-md{
-  background-color:red;
+  background: linear-gradient(to bottom, #d50b0b 0%,#ed4b4b 50%, #dc9898 100%);
+}
+
+ion-card .list-md.ios{
+  background: linear-gradient(to bottom, #d50b0b 0%,#ed4b4b 50%, #dc9898 100%);
 }
 
 
@@ -52,10 +56,8 @@ ion-card-header{
 
 }
 img{
-
 margin-left: 30px;
 }
-  
-thumbnail__size {
-size: 30px;
+p{
+  color: rgb(0, 0, 0);
 }
